@@ -1,0 +1,19 @@
+/* pages/tabbar/my/my.wxss */
+.container{
+    background: rgba(238, 238, 238, 0.255);
+    height: 100vh;
+}
+.msg{
+    text-align: center;
+    margin-bottom: 20rpx;
+    background: white;
+    padding: 30rpx;
+    box-sizing: border-box;
+}
+.head_img{
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+}

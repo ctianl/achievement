@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#5677fc",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "任务管理",
+  "backgroundColor": "#5677fc",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+
+  }
+}

@@ -1,0 +1,7 @@
+<!--pages/cropper/cropper.wxml-->
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{bgImg}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" disable_height='true' disable_width='true'></image-cropper>
+
+<view id='btns'>
+	<button id="cancel" class="btn" bindtap="cancel">取消</button>
+	<button id="finish" class="btn" bindtap="finish">完成</button>
+</view>

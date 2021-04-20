@@ -1,0 +1,74 @@
+<view class="container">
+	<!-- 显示分数 -->
+	<view class="count">
+		<view class="title">check</view>
+		<view class="countNumber"><text>{{score}}</text>
+			<text style="font-size:30rpx">分</text></view>
+		<image id='bg' src="{{bgImg}}" mode="aspectFill"></image>
+		<view class="tab">
+			<view wx:for='{{tabs}}' bindtap="changeTab" data-id='{{item.id}}' class="tab-item {{item.id==activeTab?'active':''}}">
+				<text>{{item.name}}</text>
+			</view>
+		</view>
+	</view>
+
+	<view class="list">
+		<!-- 学习列表 -->
+		<view wx:if="{{showList.length>0}}">
+			<view wx:for='{{showList}}'>
+				<tui-swipe-action backgroundColor='#eee' operateWidth="{{95}}">
+					<view slot="content" class="tui-list-item single_item">
+						<text>{{item.name}}</text>
+						<text>{{item.count}}分</text>
+					</view>
+					<view class="tui-custom-btn_box" slot="button">
+						<view class="tui-custom-btn tui-custom-mr delbtn" bindtap="tip" data-id="{{item.id}}" data-name='{{item.name}}' data-count='{{item.count}}' data-type='{{item.type}}' data-index="0">
+							完成
+						</view>
+					</view>
+				</tui-swipe-action>
+			</view>
+		</view>
+		<view class="empty_box" wx:else>
+			<image id='empty' src="/images/empty.png"></image>
+			<view>无任务</view>
+		</view>
+
+
+
+	</view>
+	<tui-modal show="{{modal}}" custom>
+		<view class="tui-modal-custom">
+			<view class="modal_title">操作提醒</view>
+			<view class="modal-content">是否完成任务？</view>
+			<button bindtap="cancel" class="cancel btn">取消</button>
+			<button bindtap="handleClick" class="sure btn">确定</button>
+		</view>
+	</tui-modal>
+
+	<!-- 添加任务 modal -->
+	<tui-modal show="{{add_modal}}" custom>
+		<view class="tui-modal-custom">
+			<view class="modal_title">添加任务</view>
+			<form bindsubmit="formSubmit" bindreset="formReset">
+				<radio-group class="radio-group add_radios" bindchange="radioChange">
+					<label class="radio" wx:for="{{types}}">
+						<radio value="{{item.id}}" checked="{{item.id==add_type}}" />{{item.name}}
+					</label>
+				</radio-group>
+				<view class="section">
+					<input name="input" placeholder="任务名" bindinput="add_name_input" value="{{add_name}}" class="input" />
+				</view>
+				<view class="section">
+					<input name="input" type="number" placeholder="任务值" bindinput="add_count_input" value="{{add_count}}" class="input" />
+				</view>
+			</form>
+			<button bindtap="cancelAdd" class="cancel btn">取消</button>
+			<button bindtap="add" class="sure btn">确定</button>
+		</view>
+	</tui-modal>
+
+
+	<button class='actionBtn' id='addMission' bindtap="addMission">+</button>
+
+</view>

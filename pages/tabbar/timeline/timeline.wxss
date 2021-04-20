@@ -1,0 +1,72 @@
+/* pages/tabbar/timeline/timeline.wxss */
+.container {
+    padding: 40rpx;
+}
+
+.tui-node {
+    border: 2px solid #eee;
+    border-radius: 50%
+}
+
+.tui-order-title {
+    font-size: 40rpx;
+    margin-bottom: 10rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+.work {
+    color: #5677fc;
+}
+
+.life {
+    color: orange;
+}
+
+.study {
+    color: rgba(255, 0, 0, 0.748);
+}
+
+.tui-modal-custom {
+    text-align: center;
+}
+
+.modal_title {
+    font-weight: bold;
+    font-size: 35rpx;
+}
+
+.btn {
+    width: 230rpx !important;
+    display: inline-block;
+    border-radius: 20rpx;
+    z-index: 99999;
+
+}
+
+.sure {
+    background: #5677fc;
+    color: white;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.cancel {
+    background: #eee;
+    color: black;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.modal_content{
+    height: 150rpx;
+    line-height: 150rpx;
+    font-size: 35rpx;
+}
+.none{
+    color: gray;
+    text-align: center;
+    margin-top: 50rpx;
+}
+.tui-order-desc,.tui-order-time{
+    color: gray;
+}

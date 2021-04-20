@@ -1,0 +1,15 @@
+<!--pages/bgImg/bgImg.wxml-->
+<view class="container">
+
+	<view class="img">
+		<image src="{{bgImg}}" mode='aspectFill'></image>
+	</view>
+	<view id="btns">
+		<button bindtap="set" id="choose" class="btn">选择图片</button>
+		<button bindtap="default" id="default" class="btn">默认</button>
+	</view>
+
+
+
+
+</view>

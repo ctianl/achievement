@@ -1,0 +1,20 @@
+/* pages/cropper/cropper.wxss */
+#btns{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    z-index: 999999999;
+}
+.btn{
+    border-radius: 0 !important;
+    font-weight: 700;
+    font-size: 32rpx !important;
+    background: black !important;
+    color: #fff !important;
+    font-family: Microsoft YaHei;
+    font-weight: 400 !important;
+    color: white!important;
+    background: none!;
+}

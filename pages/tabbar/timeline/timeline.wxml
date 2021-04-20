@@ -1,0 +1,29 @@
+<!--pages/tabbar/timeline/timeline.wxml-->
+<view class="container">
+
+	<tui-time-axis wx:if='{{list.length>0}}'>
+		<tui-timeaxis-item backgroundColor="#eee" wx:for='{{list}}'  bindtap='del' data-count='{{item.count}}' data-id='{{item.id}}'>
+			<view class="tui-node" slot="node">
+				<tui-icon name="check" color="#5677fc" size="{{18}}" bold></tui-icon>
+			</view>
+			<view slot="content">
+				<view class='tui-order-title {{item.type=="工作"?"work":item.type=="学习"?"study":"life"}}'><text>{{item.name}}</text> <text>+{{item.count}}</text> </view>
+				<view class="tui-order-desc">[{{item.type}}]</view>
+				<view class="tui-order-time">{{item.time}}</view>
+			</view>
+		</tui-timeaxis-item>
+	</tui-time-axis>
+
+	<view wx:else>
+		<view class="none">暂无时间轴信息</view>
+	</view>
+
+	<tui-modal show="{{modal}}" custom>
+		<view class="tui-modal-custom">
+			<view class="modal_title">操作提示</view>
+			<view class="modal_content">是否删除此记录？</view>
+			<button bindtap="cancel" class="cancel btn">取消</button>
+			<button bindtap="handleClick" class="sure btn">确定</button>
+		</view>
+	</tui-modal>
+</view>

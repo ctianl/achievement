@@ -1,0 +1,63 @@
+{
+  "pages":[
+    "pages/tabbar/my/my",
+    "pages/tabbar/timeline/timeline",
+    "pages/tabbar/index/index",
+    "pages/tabbar/mission/mission",
+    "pages/bgImg/bgImg",
+    "pages/cropper/cropper"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "tui-button":"/components/button/button",
+    "tui-tabbar": "/components/tui-tabbar/tui-tabbar",
+    "tui-modal": "/components/modal/modal",
+    "tui-icon": "/components/icon/icon",
+    "tui-swipe-action": "/components/swipe-action/swipe-action",
+    "tui-time-axis": "/components/time-axis/time-axis",
+    "tui-timeaxis-item": "/components/timeaxis-item/timeaxis-item",
+    "tui-list-view": "/components/list-view/list-view",
+    "tui-list-cell": "/components/list-cell/list-cell",
+    "image-cropper":"/components/image-cropper/image-cropper"
+
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#594d9c",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/tabbar/index/index",
+        "text": "首页",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home-cur.png"
+      },
+      {
+        "pagePath": "pages/tabbar/mission/mission",
+        "text": "任务",
+        "iconPath": "/images/mission.png",
+        "selectedIconPath": "/images/mission-cur.png"
+      },
+      {
+        "pagePath": "pages/tabbar/timeline/timeline",
+        "text": "时间轴",
+        "iconPath": "/images/timeline.png",
+        "selectedIconPath": "/images/timeline-cur.png"
+      },
+      {
+        "pagePath": "pages/tabbar/my/my",
+        "text": "我的",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my-cur.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+<!--pages/tabbar/my/my.wxml-->
+<view class="container">
+	<view class="msg">
+		<view class="head_img">
+			<open-data type="userAvatarUrl" lang="zh_CN"></open-data>
+		</view>
+		<open-data type="userNickName" lang="zh_CN"></open-data>
+	</view>
+
+	<tui-list-view color="#777">
+		<tui-list-cell arrow>
+			<tui-icon name="about" size="{{25}}" color='#5677fc'></tui-icon> 　介绍说明
+		</tui-list-cell>
+		<tui-list-cell arrow>
+			<tui-icon name="polygonal" size="{{25}}" color='#5677fc'></tui-icon>
+			　统计情况
+		</tui-list-cell>
+		<tui-list-cell arrow bindtap='set'>
+			<tui-icon name="pic" size="{{25}}" color='#5677fc'></tui-icon>
+			　设置背景
+		</tui-list-cell>
+	</tui-list-view>
+
+</view>

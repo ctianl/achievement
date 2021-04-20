@@ -1,0 +1,80 @@
+<!--pages/tabbar/mission/mission.wxml-->
+<view class="container">
+	<view class="top_btns">
+		<button class='actionBtn' id='addMission' bindtap="addMission">添加任务</button>
+		<button class='actionBtn' id="batch" bindtap='batch' wx:if='{{todoList.length>0}}'>批量操作</button>
+	</view>
+
+	<!-- 限制高度 -->
+	<view wx:if='{{todoList.length>0}}' style="height:80vh;overflow:scroll;position:relative">
+		<checkbox-group bindchange="checkboxChange">
+			<view wx:for='{{todoList}}' class="todoList">
+				<view class="singleList">
+					<view class='single {{item.type=="work"?"work_border":item.type=="life"?"life_border":"study_border"}}' bindtap="{{isBatch==true?'':'openMsg'}}" data-id='{{item.id}}' data-name='{{item.name}}' data-count='{{item.count}}' data-type='{{item.type}}'>
+						<!-- 规定分类 学习+生活+工作 -->
+						<view class="name">
+							<image class="icon" src='{{item.type=="work"?"/images/work.png":item.type=="life"?"/images/life.png":"/images/study.png"}}'></image> {{item.name}}
+						</view>
+						<view>
+							<text  wx:if="{{!isBatch}}" class='countNum'>{{item.count}}</text>
+							<checkbox wx:else value='{{item.id}}' wx:key="{{item.id}}" checked="{{check}}"></checkbox>
+						</view>
+					</view>
+				</view>
+			</view>
+		</checkbox-group>
+	</view>
+	<view class="empty_box" wx:else>
+		<image id='empty' src="/images/empty.png"></image>
+		<view>无任务</view>
+	</view>
+
+	
+	<button class='actionBtn' id='delMission' wx:if='{{todoList.length>0&&isBatch}}' bindtap="delMission">删除</button>
+
+	<!-- 添加任务 modal -->
+	<tui-modal show="{{add_modal}}" custom>
+		<view class="tui-modal-custom">
+			<view class="modal_title">添加任务</view>
+			<form bindsubmit="formSubmit" bindreset="formReset">
+				<radio-group class="radio-group add_radios" bindchange="radioChange">
+					<label class="radio" wx:for="{{types}}">
+						<radio value="{{item.id}}" checked="{{item.id==add_type}}" />{{item.name}}
+					</label>
+				</radio-group>
+				<view class="section">
+					<input name="input" placeholder="任务名" bindinput="add_name_input" value="{{add_name}}" class="input" />
+				</view>
+				<view class="section">
+					<input name="input" type="number" placeholder="任务值" bindinput="add_count_input" value="{{add_count}}" class="input" />
+				</view>
+			</form>
+			<button bindtap="cancelAdd" class="cancel btn">取消</button>
+			<button bindtap="handleClick" class="sure btn">确定</button>
+		</view>
+	</tui-modal>
+
+	<!-- 修改任务 modal -->
+	<tui-modal show="{{edit_modal}}" custom>
+		<view class="tui-modal-custom">
+			<view class="modal_title">修改任务</view>
+			<form bindsubmit="formSubmit" bindreset="formReset">
+				<radio-group class="radio-group edit_radios" bindchange="edit_radioChange">
+					<label class="radio" wx:for="{{types}}">
+						<radio value="{{item.id}}" checked="{{item.id==edit_type}}" />{{item.name}}
+					</label>
+				</radio-group>
+				<view class="section">
+					<input name="input" placeholder="任务名" bindinput="edit_name_input" value="{{edit_name}}" class="input" />
+				</view>
+				<view class="section">
+					<input name="input" type="number" placeholder="任务值" bindinput="edit_count_input" value="{{edit_count}}" class="input" />
+				</view>
+			</form>
+			<button bindtap="cancelEdit" class="cancel btn">取消</button>
+			<button bindtap="edit" class="sure btn">确定</button>
+		</view>
+	</tui-modal>
+
+
+</view>
